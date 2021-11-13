@@ -1,0 +1,22 @@
+{
+  "name": "server-side",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phunky-panda94/server-side.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phunky-panda94/server-side/issues"
+  },
+  "homepage": "https://github.com/phunky-panda94/server-side#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

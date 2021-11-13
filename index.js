@@ -1,23 +1,24 @@
-const fs = require('fs');
-const http = require('http');
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 8000
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    console.log(req.url);
-    fs.readFile(__dirname + req.url + '.html', (error, data) => {
-        if (error) {
-            res.writeHead(404);
-            res.write('File not found');
-            return
-        } 
-        res.writeHead(200);
-        res.end(data);
-    })
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
 })
 
-server.listen(port, () => {
-    console.log('listening')
+app.get('/about', (req, res) => {
+    res.sendFile(__dirname + '/about.html');
+})
+
+app.get('/contact', (req, res) => {
+    res.sendFile(__dirname + '/contact-me.html');
+})
+
+app.get('*', (req, res) => {
+    res.status(404).sendFile(__dirname + '/404.html');
+})
+
+app.listen(port, () => {
+    console.log(`Listening at ${port}`)
 })
 
